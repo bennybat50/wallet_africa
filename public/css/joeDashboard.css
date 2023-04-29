@@ -20,8 +20,6 @@
 }
 
 .dashboard-body--joe {
-  margin-left: 0px;
-  height: 100vh;
   padding: 10px;
 }
 
@@ -173,9 +171,6 @@
 
 @media (min-width: 992px) {
   .dashboard-body--joe {
-    margin-left: 310px;
-    margin-top: 90px;
-    height: 100vh;
     padding: 15px;
   }
 
