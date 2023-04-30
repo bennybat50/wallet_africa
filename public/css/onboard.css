@@ -6,6 +6,12 @@ body{
      
 }
 
+/* #password
+{
+      border: 1px solid red;
+      color: red;
+     width: 120px;
+} */
 .nabar{
       display: flex;
       justify-content: space-around;
@@ -184,15 +190,23 @@ a, a:hover{
   color:#333
 } */
 .input-group{
-      
+        position: relative;
     margin-left: 120px;
     width: 78%;
     margin-top: 5px;
     margin-bottom: 10px;
 }
 
-input {
+.input-group input {
       border: 1px solid grey;
+   
+      min-width: 80%;
+}
+
+
+
+.pwdlength{
+      border: 1px solid red;
 }
 
 .form-control{
@@ -223,7 +237,7 @@ margin-left: 100px;
 
 #togglePassword{
       position: absolute; 
-      left:42%;
+      left:39%;
       padding-top: 20px;
       border-left: 0.5px solid grey;
       height: 6%;
