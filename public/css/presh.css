@@ -1,0 +1,266 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: IBM Plex Sans,sans-serif;
+    text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* BALANCE */
+
+.Rightside-presh{
+  width: 70%;
+  margin: 0 auto;
+  /* padding-left: 310px; */
+}
+
+.NavRight-presh{
+  display: flex;
+  justify-content: space-between;
+  height: 90px;
+  border-bottom: 1px solid rgb(223 228 244);
+  padding-top: 40px;
+  align-items: center;
+}
+
+.wrapper-presh{
+    width: 95%;
+    /* height: 100vh; */
+    margin-left: 50px;
+    /* background-color: rgb(223, 226, 229); */
+}
+
+ 
+.cards-base-presh{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    gap: 180px;
+    margin-top: 50px;
+    /* background-color: red; */
+}
+
+.cards-presh{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-presh{
+    background-color: rgb(29, 30, 30);
+    margin-left: 30px;
+    width: 500px;
+    height: 300px;
+    /* padding-left: 20px; */
+}
+
+.card-presh-h5{
+    color: aliceblue;
+    margin-top: 40px;
+    /* background-color: blue; */
+}
+
+.card-presh-h1{
+    color: rgb(52, 146, 115);
+    margin-top: 10px;
+    /* background-color: yellow; */
+}
+
+.card-presh-btn{
+    background-color: rgb(29, 30, 30);
+    color: rgb(52, 146, 115);
+    text-align: center;
+    width: 40%;
+    font-size: large;
+    height: 60px;
+    margin-top: 40px;
+    border: 1px rgb(52, 146, 115) solid;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.left-arrow-presh{
+    width: 50px;
+}
+
+.right-arrow-presh{
+    width: 50px;
+}
+
+.previous-presh{
+    margin-left: -85px;
+    margin-bottom: 350px;
+    color: red;
+    /* background-color: greenyellow; */
+}
+
+.next-presh{
+    margin-right: 750px;
+    margin-bottom: 350px;
+}
+
+.modal-content{
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    padding-bottom: 30px; 
+    background-color: whitesmoke;
+    /* background-color: red; */
+  }
+  
+  .modal-content .btn{
+    border-radius: 0;
+    /* background-color: red; */
+  }
+  
+  .close{
+    font-size: 30px;
+    font-weight: 300;
+    /* background-color: greenyellow; */
+  }
+  
+  .modal-header .close{
+    margin-top: -10px;
+  }
+
+  .modal-body{
+    display: block;
+    margin-top: 10px;
+  }
+
+  .modal-btn{
+    margin-top: 20px;
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+    height: 60px;
+    background-color: #f5f5fff6;
+    border: 1px grey;
+    border-radius: 5px;
+    
+  }
+
+  .vertical-presh{
+    border-left: 1px solid aliceblue;
+    height: 18vh;
+    position: absolute;
+    /* position: relative; */
+    left: 78%;
+    margin-top: 50px;
+  }
+
+  /* Transactions */
+
+  .transactions-presh{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 98%;
+    border: 1px rgb(190, 206, 222) solid;
+    border-radius: 10px;
+    /* border-width: 30px; */
+    height: 300px;
+    /* margin-right: 20px; */
+    /* align-items: center; */
+  }
+
+  .outflow-presh{
+    margin-top: 40px;
+    margin-left: 30px;
+  }
+
+  .outflow-presh-h2{
+    font-weight: bold;
+    margin-top: 70px;
+    margin-left: 50px;
+  }
+
+  .outflow-presh-h6{
+    margin-left: 100px;
+  }
+
+  .inflow-select-presh{
+    width: 300px;
+    height: 50px;
+    border-radius: 5px;
+    border: rgb(189, 218, 243);
+    background-color: aliceblue;
+    font-weight: bold;
+    align-items: center;
+  }
+
+  .inflow-presh{
+    margin-top: 30px;
+    margin-left: 30px;
+  }
+
+  .inflow-presh-h2{
+    font-weight: bold;
+    margin-top: 50px;
+    margin-left: 50px;
+  }
+
+  .inflow-presh-h6{
+    margin-left: 100px;
+  }
+
+  .presh-tab{
+    margin: 30px 30px 30px 50px;
+    border-radius: 5px;
+    border: 1px rgb(190, 206, 222) solid;
+    margin-left: -0px;
+    text-align: center;
+    /* background-color: blue; */
+  }
+
+  .title-presh{
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 50px;
+    margin-top: 90px;
+    padding: 10px 10px 10px 15px;
+  }
+
+  .header{
+    color: gray;
+  }
+
+  .bank-transfer-amount{
+    font-size: 20px;
+  }
+
+  .bank-transfer-input{
+    /* text-align: center; */
+    padding-left: 20px;
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+
+  .bank-transfer-proceed{
+    border: none;
+    background-color: green;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  .ngn-cfa{
+    text-align: center;
+    margin-top: 20px;
+  }
+
+
+
+  

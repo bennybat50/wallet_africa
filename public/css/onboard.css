@@ -3,6 +3,7 @@ body{
       margin: 0%;
       box-sizing: border-box;
      
+     
 }
 
 .nabar{
@@ -195,7 +196,7 @@ input {
 }
 
 .form-control{
-      min-width:80%!important;
+      width:80%!important;
    height: 60px;
 margin-left: 100px;
       background-color:#FBFCFE; 
