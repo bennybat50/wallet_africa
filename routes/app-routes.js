@@ -2,14 +2,17 @@ const express=require('express')
 const router=express.Router()
 
 router.get('/', (req, res)=>{
+    req.app.locals.layout='main'
     res.render('index')
 })
 
 router.get('/sign-in', (req, res)=>{
+    req.app.locals.layout='main'
     res.render('login')
 })
 
 router.get('/create-account', (req, res)=>{
+    req.app.locals.layout='main'
     res.render('register')
 })
 
