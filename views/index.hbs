@@ -1,36 +1,122 @@
-  <div class="main_body">
-    <div class="body_left">
-      <img class="logo" src="https://app.wallets.africa/_next/static/media/logo.a66a70e9.svg" alt="" />
+    {{!-- nav section --}}
 
-      <div class="badguyImage">
-        <img src="https://app.wallets.africa/_next/static/media/onboard-signup.0cc7187c.svg" alt="" srcset="">
-      </div>
-    </div>
-    <div class="body_right">
+    <nav class="nabar">
 
-      <div class="welcome_1">
-        <h2>Welcome</h3>
-          <p>We are glad to have you join us</p>
-      </div>
-
-      <div class="welcome_2">
-        <h5>Please select a preferred account </h3>
-
-      </div>
-      <!-- two boxes -->
-      <a href="/create-account" class="navlink">
-        <div class="box1">
-          <span class="dot"></span>
-          <h5>wallets for personal use</h5>
-          <h6>send money to anywhere in nigeria, make paymwnt anywhere on the internet</h6>
+        <div class="container"> <img src="https://app.wallets.africa/_next/static/media/logo.a66a70e9.svg" class="logo"
+                alt="logo">
         </div>
-      </a>
+        <div class="container1">
+            <h4>New User</h4>
 
-      <div class="box2">
-        <span class="dot"></span>
-        <h5>wallets for your business</h5>
-        <h6>Experience a simpler way to bank for businesses, make payments everywhere on the internet.</h6>
-      </div>
+            <button class="btnbtn"><a href="/create-account">Sign Up</a></button>
+        </div>
 
+    </nav>
+
+    {{!-- Hero section --}}
+    <div class="hero">
+        <div class="formSection">
+
+
+
+
+            <div class="welcome1">
+                <h2>Welcome back,</h2>
+                <h5 class="ariam">To sign in, type the phone number linked to your wallets africa account and your
+                    password.</h5>
+            </div>
+            <div class="emailwarning"><a href="#">Use email/business account</a></div>
+
+
+
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-8 mt-3">
+                        <form>
+
+
+
+                            <div class="form-group">
+                                <label>Phome Number</label>
+
+
+                                <div class="input-group" id="show_hide_password">
+                                    <input class="form-control" name="phone" type="text" id="phone" />
+
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label>Password</label>
+                                <div class="input-group">
+
+
+                                    <input class="form-control" type="password" name="password" id="password" />
+                                    <i class="bi bi-eye-slash" id="togglePassword"></i>
+
+                                </div>
+                            </div>
+                            <p>Forgot Password?<a href="#">Reset it</a> </p>
+
+
+
+
+                            <button class="signInbtn"><a href="">Sign In</a></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class="banner">
+            <img src="https://app.wallets.africa/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fonboard-signin.9c62b600.png&w=2048&q=75"
+                alt="img" srcset="">
+        </div>
     </div>
-  </div>
+<script>
+    var input = document.querySelector("#phone");
+    window.intlTelInput(input, {
+        separateDialCode: true,
+        initialCountry: "ng"
+
+    });
+
+
+
+
+    const togglePassword = document
+        .querySelector('#togglePassword');
+
+    const password = document.querySelector('#password');
+
+    togglePassword.addEventListener('click', () => {
+
+        // Toggle the type attribute using
+        // getAttribure() method
+        const type = password
+            .getAttribute('type') === 'password' ?
+            'text' : 'password';
+
+        password.setAttribute('type', type);
+
+        // Toggle the eye and bi-eye icon
+        this.classList.toggle('bi-eye');
+    });
+
+
+
+
+</script>
