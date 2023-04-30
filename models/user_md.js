@@ -10,8 +10,7 @@ const userSchema=new Schema({
     bvn:{String, required:true,},
     gender:{String, required:true},
     status:{Boolean},
-    account_id:{String, require:true}
-})
+ })
 
 const users=mongoose.model("Users", userSchema)
 module.exports=users
