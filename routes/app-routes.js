@@ -11,6 +11,15 @@ router.get('/sign-in', (req, res)=>{
     res.render('login')
 })
 
+
+
+// router.get('/sign-in', (req, res) => {
+//     req.app.locals.layout = 'main'
+//     res.render('login')
+// })
+
+
+
 router.get('/create-account', (req, res)=>{
     req.app.locals.layout='main'
     res.render('register')

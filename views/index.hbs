@@ -1,91 +1,91 @@
-    {{!-- nav section --}}
+{{!-- nav section --}}
 
-    <nav class="nabar">
+<nav class="nabar">
 
-        <div class="container"> <img src="https://app.wallets.africa/_next/static/media/logo.a66a70e9.svg" class="logo"
-                alt="logo">
+    <div class="container"> <img src="https://app.wallets.africa/_next/static/media/logo.a66a70e9.svg" class="logo"
+            alt="logo">
+    </div>
+    <div class="container1">
+        <h4>New User</h4>
+
+        <button class="btnbtn"><a href="/sign-in">Sign Up</a></button>
+    </div>
+
+</nav>
+
+{{!-- Hero section --}}
+<div class="hero">
+    <div class="formSection">
+
+
+
+
+        <div class="welcome1">
+            <h2>Welcome back,</h2>
+            <h5 class="ariam">To sign in, type the phone number linked to your wallets africa account and your
+                password.</h5>
         </div>
-        <div class="container1">
-            <h4>New User</h4>
-
-            <button class="btnbtn"><a href="/create-account">Sign Up</a></button>
-        </div>
-
-    </nav>
-
-    {{!-- Hero section --}}
-    <div class="hero">
-        <div class="formSection">
+        <div class="emailwarning"><a href="#">Use email/business account</a></div>
 
 
 
-
-            <div class="welcome1">
-                <h2>Welcome back,</h2>
-                <h5 class="ariam">To sign in, type the phone number linked to your wallets africa account and your
-                    password.</h5>
-            </div>
-            <div class="emailwarning"><a href="#">Use email/business account</a></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-8 mt-3">
+                    <form>
 
 
 
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-8 mt-3">
-                        <form>
+                        <div class="form-group">
+                            <label>Phome Number</label>
 
 
+                            <div class="input-group" id="show_hide_password">
+                                <input class="form-control" name="phone" type="text" id="phone" />
 
-                            <div class="form-group">
-                                <label>Phome Number</label>
-
-
-                                <div class="input-group" id="show_hide_password">
-                                    <input class="form-control" name="phone" type="text" id="phone" />
-
-                                </div>
                             </div>
+                        </div>
 
 
 
-                            <div class="form-group">
-                                <label>Password</label>
-                                <div class="input-group">
+                        <div class="form-group">
+                            <label>Password</label>
+                            <div class="input-group">
 
 
-                                    <input class="form-control" type="password" name="password" id="password" />
-                                    <i class="bi bi-eye-slash" id="togglePassword"></i>
+                                <input class="form-control" type="password" name="password" id="password" />
+                                <i class="bi bi-eye-slash" id="togglePassword"></i>
 
-                                </div>
                             </div>
-                            <p>Forgot Password?<a href="#">Reset it</a> </p>
+                        </div>
+                        <p>Forgot Password?<a href="#">Reset it</a> </p>
 
 
 
 
-                            <button class="signInbtn"><a href="">Sign In</a></button>
-                        </form>
-                    </div>
+                        <button class="signInbtn"><a href="">Sign In</a></button>
+                    </form>
                 </div>
             </div>
-
         </div>
 
-
-
-
-
-
-
-
-
-
-
-        <div class="banner">
-            <img src="https://app.wallets.africa/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fonboard-signin.9c62b600.png&w=2048&q=75"
-                alt="img" srcset="">
-        </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="banner">
+        <img src="https://app.wallets.africa/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fonboard-signin.9c62b600.png&w=2048&q=75"
+            alt="img" srcset="">
+    </div>
+</div>
 <script>
     var input = document.querySelector("#phone");
     window.intlTelInput(input, {
