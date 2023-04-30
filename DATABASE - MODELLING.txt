@@ -1,0 +1,17 @@
+DATABASE - MODELLING
+Users:
+    ID, firstName,lastName,email,phone,address, bvn, gender, status
+Account:-JOE
+    ID, user_id, account_type,currency_id,account_number
+Transactions-EK
+    ID, user_id,transcation_type,amount,date_time, wallet_id,status, balance, narration
+Addons-EM
+    ID,name,amount
+Cards-Presh
+    ID, user_id,bank_name, card_number,card_type,card_cvv,card_expdate,
+Wallets-Lenny
+    ID, user_id, account_id, balance, date_created,
+currencies:-Joe
+    ID,name
+Banks:-Joe
+    ID,name
