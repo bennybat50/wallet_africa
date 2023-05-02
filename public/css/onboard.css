@@ -3,8 +3,15 @@ body{
       margin: 0%;
       box-sizing: border-box;
      
+     
 }
 
+/* #password
+{
+      border: 1px solid red;
+      color: red;
+     width: 120px;
+} */
 .nabar{
       display: flex;
       justify-content: space-around;
@@ -23,8 +30,8 @@ body{
 
 .container1 h4{
       float: right;
-     margin-left: 800px;
-     margin-top: 10px;
+     margin-left: 780px;
+     
 
 }
 
@@ -41,7 +48,7 @@ body{
       border: none;
       cursor: pointer;
       margin-left: 20px;
-      margin-right: 30px;
+      margin-right: 20px;
 }
 
 
@@ -120,7 +127,7 @@ overflow: hidden!important;
 }
 .welcome1{
       width: 50%;
-      margin-left: 100px;
+      margin-left: 160px;
       
       text-align: justify;
       margin-top: 100px;
@@ -153,8 +160,8 @@ overflow: hidden!important;
 
 .emailwarning{
      text-align: right;
-      margin-left: 190px;
-      width: 50%;
+      margin-left: 150px;
+      width: 70%;
       margin-top: 30px;
 }
 .emailwarning a{
@@ -162,6 +169,7 @@ overflow: hidden!important;
     font-weight: 700;
     font-size: .875rem;
     line-height: 1.25rem;
+     /* margin-left: 220px; */
 }
 
 
@@ -183,19 +191,27 @@ a, a:hover{
   color:#333
 } */
 .input-group{
-      
-    margin-left: 120px;
-    width: 78%;
+        position: relative;
+    /* margin-left: 50px; */
+    width: 380px;
     margin-top: 5px;
     margin-bottom: 10px;
 }
 
-input {
+.input-group input {
       border: 1px solid grey;
+   
+      min-width: 120%;
+}
+
+
+
+.pwdlength{
+      border: 1px solid red;
 }
 
 .form-control{
-      min-width:80%!important;
+      width:80%!important;
    height: 60px;
 margin-left: 100px;
       background-color:#FBFCFE; 
@@ -222,13 +238,15 @@ margin-left: 100px;
 
 #togglePassword{
       position: absolute; 
-      left:42%;
-      padding-top: 20px;
-      border-left: 0.5px solid grey;
-      height: 6%;
-      padding-left: 3px;
+      left: 110%;
+      padding-top: 25px;
+      /* border-left: 0.5px solid grey; */
+      height: 10%;
+      /* padding-left: 7px; */
       cursor: pointer;
-      width: 5%;
+      width: 10px;
+      top: 0;
+      /* margin-left: 20px; */
       
 
       
@@ -241,7 +259,7 @@ margin-left: 100px;
     font-weight: inherit;
     line-height: inherit;
     color: inherit;
-    padding-left: 8rem;
+    padding-left: 1.5rem;
     padding-right: 0.75rem;
     font-family: IBM Plex Sans,sans-serif;
     font-size: .875rem;

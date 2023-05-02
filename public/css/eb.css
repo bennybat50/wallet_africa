@@ -142,6 +142,7 @@ body{
     text-align: center;
     padding: 15px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .prof-content-EB{
@@ -169,8 +170,25 @@ body{
     gap: 20px;
 }
 
+.ProfBtn{
+    width: 250px;
+    background-color: #00C9B6;
+    height: 60px;
+    color: black;
+    /* text-align: center; */
+    padding-left: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .myBtnOutline-EB{
-    width: 120px;
-    height: 80px;
-    border: 1 px solid grey; 
+    width: 180px;
+    height: 45px;
+    color:#5C2799;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #5C2799;
+    cursor: pointer;
+
 }
