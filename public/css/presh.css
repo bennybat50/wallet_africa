@@ -11,10 +11,17 @@ body{
 }
 
 /* BALANCE */
-
-.Rightside-presh{
+.Rightside{
   width: 70%;
   margin: 0 auto;
+  overflow-x: hidden;
+  /* padding-left: 310px; */
+}
+
+.Rightside-presh{
+  /* width: 70%; */
+  /* margin: 0 auto; */
+  /* overflow-x: hidden; */
   /* padding-left: 310px; */
 }
 
