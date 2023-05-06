@@ -5,8 +5,7 @@ const bodyParser=require('body-parser')
 const session=require('express-session')
 const handleBars=require('express-handlebars')
 const path=require('path')
-const mongoose=require('mongoose')
-const mongoose = require ('mongoose')
+const mongoose=require('mongoose') 
 
 
 //APP CONFIGURATIONS
