@@ -3,14 +3,14 @@ const Schema=mongoose.Schema
 
 //hello
 const userSchema=new Schema({
-    firstName:{String, required:true},
-    lastName:{String, required:true},
-    email:{String, required:true},
-    phone:{String, required:true},
-    address:{String, required:true},
-    bvn:{String, required:true,},
-    gender:{String, required:true},
-    status:{Boolean},
+    firstName:{type:String, required:true},
+    lastName:{type:String, required:true},
+    email:{type:String, required:true},
+    phone:{type:String, required:true},
+    address:{type:String, required:true},
+    bvn:{type:String, required:true,},
+    gender:{type:String, required:true},
+    status:{type:Boolean},
  })
 
 const users=mongoose.model("Users", userSchema)
