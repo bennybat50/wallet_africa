@@ -1,0 +1,77 @@
+USER MANAGMENT
+(POST)/create-user
+{
+    firstName:"",
+    lastName:"",
+    email:"",
+    phone:"",
+    address:"",
+    bvn:"",
+    gender:"",
+    status:false,
+ }
+(GET)/users
+(GET)/user/:id
+(PUT)/update-user/:id
+(DELETE)/delete-user/:id
+
+ACCOUNT MANAGEMENT
+(POST)/create-account
+(GET)/accounts
+(GET)/account/:id
+(PUT)/update-account/:id
+(DELETE)/delete-account/:id
+
+
+ACCOUNT MANAGEMENT
+(POST)/create-account
+(GET)/accounts
+(GET)/account/:id
+(PUT)/update-account/:id
+(DELETE)/delete-account/:id
+ 
+
+ADDON MANAGEMENT
+(POST)/create-addon
+(GET)/addons
+(GET)/addon/:id
+(PUT)/update-addon/:id
+(DELETE)/delete-addon/:id
+
+
+BANK MANAGEMENT
+(POST)/create-bank
+(GET)/banks
+(GET)/bank/:id
+(PUT)/update-bank/:id
+(DELETE)/delete-bank/:id
+
+
+CARD MANAGEMENT
+(POST)/create-card
+(GET)/cards
+(GET)/card/:id
+(PUT)/update-card/:id
+(DELETE)/delete-card/:id
+
+CURRENCY MANAGEMENT
+(POST)/create-currency
+(GET)/currencies
+(GET)/currency/:id
+(PUT)/update-currency/:id
+(DELETE)/delete-currency/:id
+
+Transactions MANAGEMENT
+(POST)/create-transaction
+(GET)/transactions
+(GET)/transaction/:id
+(PUT)/update-transaction/:id
+(DELETE)/delete-transaction/:id
+
+WALLET MANAGEMENT
+(POST)/create-wallet
+(GET)/wallets
+(GET)/wallet/:id
+(PUT)/update-wallet/:id
+(DELETE)/delete-wallet/:id
+
