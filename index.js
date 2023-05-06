@@ -29,15 +29,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')
  
 
-//MONGODB CONNECTION
-mongoose.connect('mongodb://localhost:27017/wallet_africa',{
-    useNewUrlParser:true,
-    useUnifiedTopology:true
-})
-mongoose.connection.on("error", console.error.bind(console,"Connection Error"))
-mongoose.connection.on("connected", function () {
-    console.log("Mongodb Connected");
-})
+ 
 
 
 //MONGODB CONNECTION
