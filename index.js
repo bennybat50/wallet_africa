@@ -6,6 +6,8 @@ const session=require('express-session')
 const handleBars=require('express-handlebars')
 const path=require('path')
 const mongoose=require('mongoose')
+const mongoose = require ('mongoose')
+
 
 //APP CONFIGURATIONS
 
@@ -38,7 +40,24 @@ mongoose.connection.on("connected", function () {
     console.log("Mongodb Connected");
 })
 
- //SET ROUTES
+
+//MONGODB CONNECTION
+
+
+mongoose.connect('mongodb://127.0.0.1:27017/wallet_africa',{
+
+    useNewUrlParser:true,
+    useUnifiedTopology:true
+})
+
+mongoose.connection.on("error", console.error.bind(console,"Connection Error"))
+mongoose.connection.on("open", function () {
+    console.log("Mongodb Connected")
+})
+
+
+//SET ROUTES
+
  app.use('/', app_route)
  app.use('/api', api_route)
  
