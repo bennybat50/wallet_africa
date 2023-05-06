@@ -38,6 +38,16 @@ mongoose.connection.on("connected", function () {
     console.log("Mongodb Connected");
 })
 
+//  MONGOOSE CONNECTION
+mongoose.connect('mongodb://127.0.0.1:27017/wallet_africa',{
+    useNewUrlParser:true,
+    useUnifiedTopology:true
+})
+mongoose.connection.on("error", console.error.bind(console, "Connection Error"))
+mongoose.connection.on("connected", function () {
+    console.log("Mongodb Connected");
+})
+
  //SET ROUTES
  app.use('/', app_route)
  app.use('/api', api_route)
@@ -48,7 +58,11 @@ mongoose.connection.on("connected", function () {
 app.use('/', app_route)
 
 
+<<<<<<< Updated upstream
 
 app.listen(PORT, () => {
+=======
+app.listen(PORT, ()=>{
+>>>>>>> Stashed changes
     console.log(`Running on ${HOST}${PORT}`);
 })
