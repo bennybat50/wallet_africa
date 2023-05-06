@@ -45,6 +45,7 @@ mongoose.connection.on("error", console.error.bind(console,"Connection Error"))
 mongoose.connection.on("open", function () {
     console.log("Mongodb Connected")
 })
+//
 
 
 //SET ROUTES
