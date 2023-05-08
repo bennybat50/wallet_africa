@@ -1,5 +1,6 @@
 USER MANAGMENT
 (POST)/create-user
+BODY
 {
     firstName:"",
     lastName:"",
@@ -11,8 +12,15 @@ USER MANAGMENT
     status:false,
  }
 (GET)/users
+RESPONSE
+[]
+
 (GET)/user/:id
+RESPONSE
+{}
+
 (PUT)/update-user/:id
+Send BODY
 (DELETE)/delete-user/:id
 
 ACCOUNT MANAGEMENT
@@ -23,12 +31,7 @@ ACCOUNT MANAGEMENT
 (DELETE)/delete-account/:id
 
 
-ACCOUNT MANAGEMENT
-(POST)/create-account
-(GET)/accounts
-(GET)/account/:id
-(PUT)/update-account/:id
-(DELETE)/delete-account/:id
+
  
 
 ADDON MANAGEMENT
