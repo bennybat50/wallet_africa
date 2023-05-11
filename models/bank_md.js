@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const bankSchema = new Schema({
-    name:{String, required: true}
+    name:{type:String, required: true}
 })
 
 const bank = mongoose.model("bank", bankSchema)
