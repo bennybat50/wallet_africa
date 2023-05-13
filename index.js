@@ -13,8 +13,10 @@ const mongoose=require('mongoose')
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static(path.join(__dirname, 'public')));
+
 //For all Static files (Css, Imgs, Js, Fonts etc)
+app.use(express.static(path.join(__dirname, 'public')));
+
 let {HOST, PORT}=require('./config/configuration')
 let app_route=require('./routes/app-routes')
 let api_route=require('./routes/api-routes')
@@ -51,12 +53,6 @@ mongoose.connection.on("open", function () {
 
  app.use('/', app_route)
  app.use('/api', api_route)
- 
-
-
-//SET ROUTES
-app.use('/', app_route)
-
 
 
 app.listen(PORT, () => {
