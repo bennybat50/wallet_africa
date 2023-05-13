@@ -1,9 +1,9 @@
 const mongoose = require ('mongoose');
-const Schema = mogoose.Schema;
+const Schema = mongoose.Schema;
 
 const addonsSchema = new Schema({
-    name:{String, required:true},
-    amount:{Number, required: true},
+    name:{type:String, required:true},
+    amount:{type:String, required: true},
 })
 
 const addons = mongoose.model('addons', addonsSchema)
