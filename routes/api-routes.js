@@ -168,6 +168,61 @@ router.delete('/delete-user/:id', (req, res) => {
 })
 
 
+/* BANK MANAGEMENT ROUTES*/
+//  create bank
+router.post("/create-bank", (req, res) => {
+
+    addOnModel.create(req.body).then((bank) => {
+        res.send(bank)
+    }).catch((err) => {
+        console.log(err)
+        res.send(err)
+    })
+})
+
+// get all banks
+router.get("/banks", (req, res) => {
+    addOnModel.find().lean().then((banks) => {
+        res.send({ success: true, data: banks })
+    })
+})
+// get a bank
+router.get("/bank/:id", (req, res) => {
+    addOnModel.findById(req.params.id).lean().then((bank) => {
+        res.send({ success: true, data: bank })
+    })
+
+})
+// edit a bank
+
+router.post("/update-bank", (req, res) => {
+    addOnModel.findByIdAndUpdate(req.body.id, req.body).then(() => {
+        addOnModel.findById(req.body.id).lean().then((bank) => {
+            res.send({ success: true, message: "addon Updated", data: bank })
+        })
+    })
+})
+// delete a bank
+
+router.delete("/delete-bank/:id", (req, res) => {
+    addOnModel.findByIdAndDelete(req.params.id).then(() => {
+        res.send({ success: true, message: "bank Deleted" })
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
