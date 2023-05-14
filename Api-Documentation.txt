@@ -52,6 +52,14 @@ BANK MANAGEMENT
 
 CARD MANAGEMENT
 (POST)/create-card
+{
+    bank_name:"",
+    card_number:"",
+    card_type:"",
+    card_cvv:"",
+    card_expdate:"",
+    user_id:"",
+}
 (GET)/cards
 (GET)/card/:id
 (PUT)/update-card/:id

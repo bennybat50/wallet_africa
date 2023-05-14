@@ -7,6 +7,8 @@ const accountModel= require('../models/account_md')
 const transactionModel= require('../models/transaction_md')
 const currencyModel= require('../models/currency_md')
 const walletModel= require('../models/wallet_md')
+const cardModel=require('../models/card_md')
+
 
 //USER MANAGEMENT ROUTES
 router.post('/create-user', (req, res) => {
@@ -342,9 +344,96 @@ router.delete('/delete-currency/:id', (req, res) => {
     })
 })
 
+router.get('/users', (req, res) => {
+    userModel.find().lean().then((users) =>{
+        res.send({success:true, data:users})
+    })
+})
+
+router.get('/user/:id', (req, res) => {
+    userModel.findById(req.params.id).lean().then((user) =>{
+        res.send({success:true, data:user})
+    })
+})
+
+// router.put('/update-user/:id', (req, res) => {
+
+//     userModel.findByIdAndUpdate(req.params.id, req.body).then(() => {
+    
+//         userModel.findById(req.params.id).lean().then((user) =>{
+//             res.send({success:true, msg:"User Updated",  data:user})
+
+//         })
+
+//     })
+   
+// })
+// for security reasons make every request a post request
+router.post('/update-user', (req, res) => {
+
+    userModel.findByIdAndUpdate(req.body.id, req.body).then(() => {
+    
+        userModel.findById(req.body.id).lean().then((user) =>{
+            res.send({success:true, msg:"User Updated",  data:user})
+
+        })
+
+    })
+   
+})
 
 
-//WALLET MANAGEMENT ROUTES
+router.delete('/delete-user/:id', (req, res) => {
+    userModel.findByIdAndDelete(req.params.id).lean().then(() =>{
+        res.send({success:true, msg:"user Deleted"})
+    })
+})
+
+
+
+// CARD MANAGEMENT
+router.post('/create-card', (req, res)=>{
+
+    cardModel.create(req.body).then((card)=>{
+        res.send(card)
+        
+    }).catch((err)=>{
+        console.log(err);
+        res.send(err)
+    })
+    
+})
+
+router.get('/cards', (req, res) => {
+    cardModel.find().lean().then((cards) =>{
+        res.send({success:true, data:cards})
+    })
+})
+
+router.get('/card/:id', (req, res) => {
+    cardModel.findById(req.params.id).lean().then((card) =>{
+        res.send({success:true, data:card})
+    })
+})
+
+router.post('/update-card', (req, res) => {
+
+    cardModel.findByIdAndUpdate(req.body.id, req.body).then(() => {
+    
+        cardModel.findById(req.body.id).lean().then((card) =>{
+            res.send({success:true, msg:"Card Updated", data:card})
+
+        })
+
+    })
+   
+})
+
+router.delete('/delete-card/:id', (req, res) => {
+    cardModel.findByIdAndDelete(req.params.id).lean().then(() =>{
+        res.send({success:true, msg:"card Deleted"})
+    })
+})
 
 // CREATE
 router.post('/create-wallet', (req, res)=>{
