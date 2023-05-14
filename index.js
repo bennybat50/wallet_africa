@@ -1,11 +1,11 @@
-const express= require('express')
-const app=express()
-const cors=require('cors')
-const bodyParser=require('body-parser')
-const session=require('express-session')
-const handleBars=require('express-handlebars')
-const path=require('path')
-const mongoose=require('mongoose') 
+const express = require('express')
+const app = express()
+const cors = require('cors')
+const bodyParser = require('body-parser')
+const session = require('express-session')
+const handleBars = require('express-handlebars')
+const path = require('path')
+const mongoose = require('mongoose')
 
 
 //APP CONFIGURATIONS
@@ -17,11 +17,19 @@ app.use(express.urlencoded({ extended: true }))
 //For all Static files (Css, Imgs, Js, Fonts etc)
 app.use(express.static(path.join(__dirname, 'public')));
 
+<<<<<<< Updated upstream
 let {HOST, PORT}=require('./config/configuration')
 let app_route=require('./routes/app-routes')
 let api_route=require('./routes/api-routes')
 let admin_route=require('./routes/admin-routes')
  
+=======
+let { HOST, PORT } = require('./config/configuration')
+let app_route = require('./routes/app-routes')
+let api_route = require('./routes/api-routes')
+let admin_route = require('./routes/admin-routes')
+
+>>>>>>> Stashed changes
 //VIEW CONFIGURATION
 app.engine('hbs', handleBars.engine({
     layoutsDirectory: path.join(__dirname, 'views/layouts'),
@@ -30,30 +38,37 @@ app.engine('hbs', handleBars.engine({
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')
- 
 
- 
+
+
 
 
 //MONGODB CONNECTION
 
 
-mongoose.connect('mongodb://127.0.0.1:27017/wallet_africa',{
-    useNewUrlParser:true,
-    useUnifiedTopology:true
+mongoose.connect('mongodb://127.0.0.1:27017/wallet_africa', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 })
 
-mongoose.connection.on("error", console.error.bind(console,"Connection Error"))
+mongoose.connection.on("error", console.error.bind(console, "Connection Error"))
 mongoose.connection.on("open", function () {
     console.log("Mongodb Connected")
 })
 
 //SET ROUTES
+<<<<<<< Updated upstream
  app.use('/', app_route)
  app.use('/api', api_route)
  app.use('/admin', admin_route)
  
+=======
 
+app.use('/', app_route)
+app.use('/api', api_route)
+>>>>>>> Stashed changes
+
+app.use('/admin/', admin_route)
 app.listen(PORT, () => {
     console.log(`Running on ${HOST}${PORT}`);
 })
