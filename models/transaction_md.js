@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const transactionSchema = new Schema({
-    transcation_type: {type: String, required: true },
+    transaction_type: {type: String, required: true },
     amount: {type: Number, required: true },
     date_time: { type:String, required: true },
     status: {type: String, required: true },

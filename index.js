@@ -20,6 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 let {HOST, PORT}=require('./config/configuration')
 let app_route=require('./routes/app-routes')
 let api_route=require('./routes/api-routes')
+let admin_route=require('./routes/admin-routes')
  
 //VIEW CONFIGURATION
 app.engine('hbs', handleBars.engine({
@@ -46,14 +47,12 @@ mongoose.connection.on("error", console.error.bind(console,"Connection Error"))
 mongoose.connection.on("open", function () {
     console.log("Mongodb Connected")
 })
-//
-
 
 //SET ROUTES
-
  app.use('/', app_route)
  app.use('/api', api_route)
-
+ app.use('/admin', admin_route)
+ 
 
 app.listen(PORT, () => {
     console.log(`Running on ${HOST}${PORT}`);
