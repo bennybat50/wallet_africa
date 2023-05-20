@@ -17,19 +17,11 @@ app.use(express.urlencoded({ extended: true }))
 //For all Static files (Css, Imgs, Js, Fonts etc)
 app.use(express.static(path.join(__dirname, 'public')));
 
-<<<<<<< Updated upstream
-let {HOST, PORT}=require('./config/configuration')
-let app_route=require('./routes/app-routes')
-let api_route=require('./routes/api-routes')
-let admin_route=require('./routes/admin-routes')
- 
-=======
 let { HOST, PORT } = require('./config/configuration')
 let app_route = require('./routes/app-routes')
 let api_route = require('./routes/api-routes')
 let admin_route = require('./routes/admin-routes')
 
->>>>>>> Stashed changes
 //VIEW CONFIGURATION
 app.engine('hbs', handleBars.engine({
     layoutsDirectory: path.join(__dirname, 'views/layouts'),
@@ -57,18 +49,11 @@ mongoose.connection.on("open", function () {
 })
 
 //SET ROUTES
-<<<<<<< Updated upstream
- app.use('/', app_route)
- app.use('/api', api_route)
- app.use('/admin', admin_route)
- 
-=======
 
 app.use('/', app_route)
 app.use('/api', api_route)
->>>>>>> Stashed changes
-
 app.use('/admin/', admin_route)
+
 app.listen(PORT, () => {
     console.log(`Running on ${HOST}${PORT}`);
 })

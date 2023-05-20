@@ -1,15 +1,71 @@
 <div class="row">
     <div class="col">
-        <h3>all users</h3>
+        <h3>All Users</h3>
     </div>
-    <div class="col-auto">
+    <div class="col-auto" style="margin-top: 10px;">
+        <a href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Create
+            User</a>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form action="create-user" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Create a New User</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
 
-        <a href="http://" class="btn btn-primary">Create User</a>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                            <input type="text" class="form-control" name="firstName" id="exampleFormControlInput1"
+                                placeholder="First Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" name="lastName" id="exampleFormControlInput1"
+                                placeholder="Last name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" name="email" id="exampleFormControlInput1"
+                                placeholder="Input your email address">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Address</label>
+                            <input type="text" class="form-control" name="address" id="exampleFormControlInput1"
+                                placeholder="Type in your home address">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">BVN</label>
+                            <input type="text" class="form-control" name="bvn" id="exampleFormControlInput1"
+                                placeholder="Insert your BVN">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" name="phone" id="exampleFormControlInput1"
+                                placeholder="Enter your Phone Number">
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Gender</label>
+                            <input type="text" class="form-control" name="gender" id="exampleFormControlInput1"
+                                placeholder="Gender">
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Create User</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-
-
-
 
 <section class="d-none d-lg-block">
     <div class="table-responsive container--joe mt-3">
@@ -26,43 +82,107 @@
                         S/N
                     </th>
                     <th scope="col" class="fw-light">
-                        FIRST NAME
+                        First Name
                     </th>
                     <th scope="col" class="fw-light">
-                        LAST NAME
+                        Last Name
                     </th>
                     <th scope="col" class="fw-light">
-                        EMAIL
+                        Email
                     </th>
                     <th scope="col" class="fw-light">
-                        PHONE
+                        Phone
                     </th>
                     <th scope="col" class="fw-light">
-                        GENDER
+                        Gender
                     </th>
                     <th scope="col" class="fw-light">
-                        ACTIONS
+                        Actions
                     </th>
                 </tr>
             </thead>
             <tbody>
-
                 {{#each users}}
                 <tr>
-                    <td>{{@index}}</td>
-                    <td>{{firstName}}</td>
-                    <td>{{lastName}}</td>
-                    <td>{{email}}</td>
-                    <td>{{phone}}</td>
-                    <td>{{gender}}</td>
-
-                    <td><a href="http://" class="btn  btn-sm btn-warning">Edit</a>
-                        <a href="http://" class="btn  btn-sm btn-danger">delete</a>
-
+                    <td>{{ @index }}</td>
+                    <td>{{ firstName }}</td>
+                    <td>{{ lastName }}</td>
+                    <td>{{ email }}</td>
+                    <td>{{ phone }}</td>
+                    <td>{{ gender }}</td>
+                    <td>
+                        <a href="#" class="btn btn-sm btn-warning" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal{{_id}}"> Edit </a>
+                        <a href="/admin/delete-user/{{_id}}" class="btn btn-sm btn-danger"> Delete </a>
                     </td>
-
-
                 </tr>
+
+
+                <div class="modal fade" id="exampleModal{{_id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <form action="update-user" method="post">
+                            <input type="hidden" name="id" value="{{_id}}">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Create a New User</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" name="firstName" value="{{firstName}}"
+                                            id="exampleFormControlInput1" placeholder="First Name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" name="lastName" value="{{lastName}}"
+                                            id="exampleFormControlInput1" placeholder="Last name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" name="email" value="{{ email}}"
+                                            id="exampleFormControlInput1" placeholder="Input your email address">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Address</label>
+                                        <input type="text" class="form-control" name="address" value="{{address}}"
+                                            id="exampleFormControlInput1" placeholder="Type in your home address">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">BVN</label>
+                                        <input type="text" class="form-control" name="bvn" value="{{bvn}}"
+                                            id="exampleFormControlInput1" placeholder="Insert your BVN">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
+                                        <input type="text" class="form-control" name=" phone" value="{{ phone}}"
+                                            id="exampleFormControlInput1" placeholder="Enter your Phone Number">
+                                    </div>
+
+
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Gender</label>
+                                        <input type="text" class="form-control" name="gender" value="{{ gender }}"
+                                            id="exampleFormControlInput1" placeholder="Gender">
+                                    </div>
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    {{!-- <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button> --}}
+                                    <button type="submit" class="btn btn-warning">Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
 
 
                 {{/each }}
