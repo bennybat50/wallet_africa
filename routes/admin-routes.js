@@ -7,16 +7,16 @@ const accountModel= require('../models/account_md')
 const transactionModel= require('../models/transaction_md')
 const currencyModel= require('../models/currency_md')
 const walletModel= require('../models/wallet_md')
-
+const cardModel = require ('../models/card_md')
 //USER MANAGEMENT ROUTES
 router.post('/create-user', (req, res) => {
 
     userModel.create(req.body).then((user) => {
-        res.send({ sucess: true, data: user });
+        res.redirect("/admin/users");
 
     }).catch((err) => {
         console.log(err);
-        res.send({ "error": true, message: err.message });
+        res.redirect("/admin/users");
     })
 
 })
@@ -51,18 +51,14 @@ router.put('/user/:id', (req, res) => {
 
 router.post('/update-user', (req, res) => {
     userModel.findByIdAndUpdate(req.body.id, req.body).then(() => {
-
-        userModel.findById(req.params.id).lean().then((user) => {
-            res.send({ success: true, msg: "User Updated", data: user })
-        })
-
+        res.redirect("/admin/users")
     }) 
 }) 
 
 
-router.delete('/delete-user/:id', (req, res) => {
+router.get('/delete-user/:id', (req, res) => {
     userModel.findByIdAndDelete(req.params.id).then(() => {
-        res.send({ success: true, message: "User Deleted" })
+        res.redirect("/admin/users")
     })
 })
 
@@ -346,5 +342,59 @@ router.delete('/delete-wallet/:id', (req, res)=> {
 
 })
 
+
+// CARD MANAGEMENT
+router.post('/create-card', (req, res)=>{
+
+    cardModel.create(req.body).then((card)=>{
+        res.redirect("/admin/cards")
+        
+    }).catch((err)=>{
+        console.log(err);
+        res.redirect("/admin/cards")
+    })
+    
+})
+
+
+
+router.get('/cards', (req, res) => {
+    req.app.locals.layout='admin_ly'
+    
+    cardModel.find().lean().then((cards) => {
+    res.render('admin/cards',{ cards: cards });
+    })
+})
+
+router.get('/card/:id', (req, res) => {
+    cardModel.findById(req.params.id).lean().then((card) =>{
+        res.send({success:true, data:card})
+    })
+})
+
+router.put('/card/:id', (req, res) => {
+    cardModel.findByIdAndUpdate(req.params.id, req.body).then(() => {
+
+        cardModel.findById(req.params.id).lean().then((user) => {
+            res.send({ success: true, msg: "Card Updates", data: user });
+        })
+
+    })
+})
+
+router.post('/update-card', (req, res) => {
+
+    cardModel.findByIdAndUpdate(req.body.id, req.body).then(() => {
+        res.redirect("/admin/cards")
+    })
+   
+})
+
+router.get('/delete-card/:id', (req, res) => {
+    cardModel.findByIdAndDelete(req.params.id).then(() =>{
+        res.redirect("/admin/cards")
+    })
+
+})
 
 module.exports=router

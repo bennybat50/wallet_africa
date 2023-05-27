@@ -8,11 +8,28 @@ const transactionModel= require('../models/transaction_md')
 const currencyModel= require('../models/currency_md')
 const walletModel= require('../models/wallet_md')
 const cardModel=require('../models/card_md')
+let multer   = require("multer");
+let fs = require('fs');
+let path = require('path');
+
+let storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        let __dir =  path.join(__dirname,'../public/uploads',); 
+        cb(null, __dir);
+    },
+    filename: function (req, file, cb) {
+            let filename = file.originalname.toLowerCase();
+            cb(null, filename);
+        }
+    });
+let upload = multer({storage});
+
 
 
 //USER MANAGEMENT ROUTES
-router.post('/create-user', (req, res) => {
-
+router.post('/create-user', upload.any(), (req, res) => {
+    console.log(req.files[0].filename)
+    req.body.image = req.file[0].filename
     userModel.create(req.body).then((user) => {
         res.send({ sucess: true, data: user });
 
@@ -60,10 +77,10 @@ router.get('/user/:id', (req, res) => {
     })
 })
 
-router.post('/update-user', (req, res) => {
+router.post('/update-user',upload.any(), (req, res) => {
+    req.body.image = req.files[0].filename
     userModel.findByIdAndUpdate(req.body.id, req.body).then(() => {
-
-        userModel.findById(req.params.id).lean().then((user) => {
+        userModel.findById(req.body.id).lean().then((user) => {
             res.send({ success: true, msg: "User Updated", data: user })
         })
 

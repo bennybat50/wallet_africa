@@ -11,6 +11,7 @@ const userSchema=new Schema({
     bvn:{type:String, required:true,},
     gender:{type:String, required:true},
     status:{type:Boolean},
+    image: {type:String, required: false},
  })
 
 const users=mongoose.model("Users", userSchema)

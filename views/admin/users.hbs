@@ -1,14 +1,64 @@
-      
-      <div class="row">
-        <div class="col">
-            <h3>All Users</h3>
-        </div>
-        <div class="col-auto">
-            <a href="#" class="btn btn-primary">Create User</a>
-        </div>
-      </div>
 
-      <section class="d-none d-lg-block">
+<div class="row">
+    <div class="col">
+        <h3>All Users</h3>
+    </div>
+    <div class="col-auto" style="margin-top: 10px;">
+        <a href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Create User</a>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form action="create-user" method="post">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Create a New User</h1>
+                <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                        <input type="text" class="form-control" name="firstName" id="exampleFormControlInput1" placeholder="First Name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" name="lastName" id="exampleFormControlInput1" placeholder="Last name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email Address</label>
+                        <input type="email" class="form-control"name="email" placeholder="Input your email address">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Address</label>
+                        <input type="text" class="form-control" name="address" id="exampleFormControlInput1" placeholder="Type in your home address">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">BVN</label>
+                        <input type="text" class="form-control" name="bvn" id="exampleFormControlInput1" placeholder="Insert your BVN">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Phone</label>
+                        <input type="number" class="form-control" name="phone" id="exampleFormControlInput1" placeholder="Insert your Phone Number">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Gender</label>
+                        <select name="gender" id="" class="form-control">
+                          <option value="">Select Gender</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                        </select>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Create User</button>
+            </div>
+        </div>
+      </form>
+    </div>
+    </div>
+</div>
+
+<section class="d-none d-lg-block">
         <div class="table-responsive container--joe mt-3">
             <div class="d-flex justify-content-between line--joe">
               <p class="fs-5">Recent Transactions</p>
@@ -20,7 +70,7 @@
               <thead>
                 <tr>
                   <th scope="col" class="fw-light">
-                    S / N
+                    S/N
                   </th>
                   <th scope="col" class="fw-light">
                     First Name
@@ -32,10 +82,13 @@
                     Email
                   </th>
                   <th scope="col" class="fw-light">
-                   Phone
+                    Phone
                   </th>
                   <th scope="col" class="fw-light">
                     Gender
+                  </th>
+                  <th scope="col" class="fw-light">
+                    BVN
                   </th>
                   <th scope="col" class="fw-light">
                     Actions
@@ -43,7 +96,7 @@
                 </tr>
               </thead>
               <tbody>
-                {{#each users  }}
+                {{#each users}}
                 <tr>
                   <td>{{ @index }}</td>
                   <td>{{ firstName }}</td>
@@ -51,13 +104,65 @@
                   <td>{{ email }}</td>
                   <td>{{ phone }}</td>
                   <td>{{ gender }}</td>
+                  <td>{{ bvn }}</td>
                   <td>
-                    <a href="#" class="btn btn-sm btn-warning">Edit</a> |
-                    <a href="#" class="btn btn-sm btn-danger">Delete</a> | 
+                    <a href="#" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal{{_id}}"> Edit </a>
+                    <a href="/admin/delete-user/{{_id}}" class="btn btn-sm btn-danger"> Delete </a>
                   </td>
                 </tr>
-               {{/each  }}
+                <div class="modal fade" id="exampleModal{{ _id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form action="update-user" method="post">
+        <input type="hidden" name="id" value="{{ _id }}">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Create a New User</h1>
+                <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                        <input type="text" class="form-control" name="firstName" value="{{ firstName }}" id="exampleFormControlInput1" placeholder="First Name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" name="lastName" value="{{ lastName }}" id="exampleFormControlInput1" placeholder="Last name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email Address</label>
+                        <input type="email" class="form-control"name="email" value="{{ email }}" placeholder="Input your email address">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Address</label>
+                        <input type="text" class="form-control" name="address" value="{{ address }}" id="exampleFormControlInput1" placeholder="Type in your home address">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">BVN</label>
+                        <input type="text" class="form-control" name="bvn" value="{{ bvn }}" id="exampleFormControlInput1" placeholder="Insert your BVN">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Phone</label>
+                        <input type="number" class="form-control" name="phone" value="{{ phone }}" id="exampleFormControlInput1" placeholder="Insert your Phone Number">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Gender</label>
+                        <select name="gender" id="" class="form-control">
+                          <option value="">Select Gender</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                        </select>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-warning">Update User</button>
+            </div>
+        </div>
+      </form>
+    </div>
+    </div>
+                {{/each }}
               </tbody>
             </table>
           </div>
-      </section>
+</section>

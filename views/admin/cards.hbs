@@ -1,0 +1,168 @@
+
+<div class="row">
+    <div class="col">
+        <h3>All Cards</h3>
+    </div>
+    <div class="col-auto" style="margin-top: 10px;">
+        <a href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Create Card</a>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form action="create-card" method="post">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Create a New Card</h1>
+                <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Bank Name</label>
+                        <input type="text" class="form-control" name="bankName" id="exampleFormControlInput1" placeholder="Bank Name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Card Number</label>
+                        <input type="text" class="form-control" name="cardNumber" id="exampleFormControlInput1" placeholder="Insert your Card Number">
+                    </div>
+                     <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Card Type</label>
+                        <input type="text" class="form-control" name="cardType" id="exampleFormControlInput1" placeholder="Insert your Card Type">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Card CVV</label>
+                        <input type="number" class="form-control" name="cardCvv" id="exampleFormControlInput1" placeholder="Insert your Card CVV">
+                    </div>
+                     <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Card Expiry Date</label>
+                        <input type="date" class="form-control" name="cardExpdate" id="exampleFormControlInput1" placeholder="Insert your Card CVV">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">User Id</label>
+                        <input type="text" class="form-control" name="userId" id="exampleFormControlInput1" placeholder="Insert user ID">
+                    </div>
+                    {{!-- <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Card Exp Date</label>
+                        <select name="gender" id="" class="form-control">
+                          <option value="">Select Gender</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                        </select>
+                    </div> --}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Create Card</button>
+            </div>
+        </div>
+      </form>
+    </div>
+    </div>
+</div>
+
+<section class="d-none d-lg-block">
+        <div class="table-responsive container--joe mt-3">
+            <div class="d-flex justify-content-between line--joe">
+              <p class="fs-5">List of Cards</p>
+              <button class="fs-6 border-0 bg-white px-3">
+                See All
+              </button>
+            </div>
+            <table class="table table--hover--joe">
+              <thead>
+                <tr>
+                  <th scope="col" class="fw-light">
+                    S/N
+                  </th>
+                  <th scope="col" class="fw-light">
+                    Bank Name
+                  </th>
+                  <th scope="col" class="fw-light">
+                    Card Number
+                  </th>
+                  <th scope="col" class="fw-light">
+                    Card Type
+                  </th>
+                  <th scope="col" class="fw-light">
+                    Card CVV
+                  </th>
+                  <th scope="col" class="fw-light">
+                    Card Expiry Date
+                  </th>
+                  {{!-- <th scope="col" class="fw-light">
+                    BVN
+                  </th> --}}
+                  <th scope="col" class="fw-light">
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each cards}}
+                <tr>
+                  <td>{{ @index}}</td>
+                  <td>{{ bankName}}</td>
+                  <td>{{ cardNumber }}</td>
+                  <td>{{ cardType }}</td>
+                  <td>{{ cardCvv }}</td>
+                  <td>{{ cardExpdate }}</td>
+                  {{!-- <td>{{ bvn }}</td> --}}
+                  <td>
+                    <a href="#" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal{{_id}}"> Edit </a>
+                    <a href="/admin/delete-card/{{_id}}" class="btn btn-sm btn-danger"> Delete </a>
+                  </td>
+                </tr>
+                <div class="modal fade" id="exampleModal{{ _id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form action="update-card" method="post">
+        <input type="hidden" name="id" value="{{ _id }}">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Create a New Card</h1>
+                <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Bank Name</label>
+                        <input type="text" class="form-control" name="bankName" value="{{ bankName }}" id="exampleFormControlInput1" placeholder="Bank Name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Card Number</label>
+                        <input type="text" class="form-control" name="cardNumber" value="{{ cardNumber }}" id="exampleFormControlInput1" placeholder="Card Name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Card Type</label>
+                        <input type="text" class="form-control" name="cardType" value="{{ cardType }}" id="exampleFormControlInput1" placeholder="Card Type">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">card Cvv</label>
+                        <input type="text" class="form-control" name="cardCvv" value="{{ cardCvv }}" id="exampleFormControlInput1" placeholder="Insert your CVV">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Card Expdate</label>
+                        <input type="date" class="form-control" name="cardExpdate" value="{{ cardExpdate }}" id="exampleFormControlInput1" placeholder="Card Exp Date">
+                    </div>
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">User Id</label>
+                        <input type="text" class="form-control" name="userId" value="{{ userId }}" id="exampleFormControlInput1" placeholder="User Id">
+                    </div>
+                    {{!-- <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Gender</label>
+                        <select name="gender" id="" class="form-control">
+                          <option value="">Select Gender</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                        </select>
+                    </div> --}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-warning">Update Card</button>
+            </div>
+        </div>
+      </form>
+    </div>
+    </div>
+                {{/each }}
+              </tbody>
+            </table>
+          </div>
+</section>

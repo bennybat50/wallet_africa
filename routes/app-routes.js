@@ -1,5 +1,6 @@
 const express=require('express')
 const router=express.Router()
+const userModel =require('../models/user_md')
 
 router.get('/', (req, res)=>{
     req.app.locals.layout='main'
@@ -31,7 +32,16 @@ router.get('/balance', (req, res)=>{
     res.render('app/balances')
 })
 
-
+router.post('/login', (req, res)=>{
+    userModel.findOne({phone: req.body.phone, email: req.body.email}).then((user)=>{
+        console.log(user)
+        if (user){
+            res.redirect('/dashboard')
+        }else{
+            res.redirect.render('/login')
+        }
+    })
+})  
  
 
 module.exports=router
